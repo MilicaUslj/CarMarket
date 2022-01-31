@@ -1,0 +1,15 @@
+In order to successfully run this web app on your computer, the pre-requirement is that on your computer you have instilled the following softwares:
+ - Visual Studio 2019 with .Net(ASP)
+ - SQL Server Developer 2019, including SQL Server Management Studio (SSMS)
+
+Once you have downloaded all files uploaded on this repository you need to take following steps to run the app:
+ -Open file CarMarket.sql file
+   -Copy server name
+   -Double click connect
+   -Click control+A to select all the code in the file and then click on the button Connect in menu bar above
+ -Open CarMarket.sln file 
+   -From the Visual Studio solution explorer menu Open Web.config page
+   -Scroll to the button of the file and in the 13th line from the button local “data.source=BGNTSNB067” change in to data.source=Your_Server_Name (the one that you copied form CarMarket.sql file)
+   -Save changes
+   -Click IIS button from the Visual Studio menu above
+Wait....Enjoy!!!
