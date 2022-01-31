@@ -1,0 +1,112 @@
+﻿@model WebApp.Models.Offer
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Offer Details</h2>
+
+<div>
+    <h2>  @Html.DisplayFor(model => model.Model)</h2>
+    <hr />
+    <div>
+        <div>
+            <img src="@Url.Content(Model.Picture) " width="650" />
+        </div>
+
+        <div>
+            <dl class="dl-horizontal">
+                <dt class="price-label">
+                    @Html.DisplayNameFor(model => model.Price)
+                </dt>
+
+                <dd class="price-value">
+                    @Html.DisplayFor(model => model.Price)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Year)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Year)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Distance)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Distance)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Power_KW_)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Power_KW_)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Power_HP_)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Power_HP_)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Desription)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Desription)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Notice)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Notice)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Contact)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Contact)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Category1)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Category1.CetgoryName)
+                </dd>
+
+
+            </dl>
+        </div>
+    </div>
+
+</div>
+
+
+@using (Html.BeginForm("Delete", "Offers", new { id = @Model.ID }, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-actions no-color">
+    <input type="submit" value="Delete" class="btn btn-default" /> |   
+    @if (Model.Category == 1)
+    {@Html.ActionLink("Back to Cars", "IndexC")}
+    @if (Model.Category == 2)
+    {@Html.ActionLink("Back to Motorcycle and ATW", "IndexMA")}
+    @if (Model.Category == 3)
+    {@Html.ActionLink("Back to Carriage Vehicles", "IndexCV")}
+</div>
+}
+
+

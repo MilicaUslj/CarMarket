@@ -1,0 +1,64 @@
+﻿@model IEnumerable<WebApp.Models.Offer>
+
+@{
+    ViewBag.Title = "IndexCarriageVehicles";
+}
+
+<h2>Carriage vehicles</h2>
+
+<h2>Search</h2>
+
+<form asp-controller="Offers" asp-action="IndexCV">
+    <p>
+        Input: <input type="text" name="criteria">
+        <input type="submit" value="Search offers" />
+    </p>
+</form>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Image)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Model)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Year)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Distance)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <img src="@Url.Content(item.Picture) " width="150" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Model)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Year)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Distance)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+
+            <td>
+                @Html.ActionLink("View offer details or delete", "Details", new { id = item.ID })
+            </td>
+        </tr>
+    }
+
+</table>
